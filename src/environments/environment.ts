@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig: {
+    apiKey: 'AIzaSyB6qEb2w_YaBZCnrp_Cjn8oMbFGrjHXhzo',
+    authDomain: 'heroic-icon-151001.firebaseapp.com',
+    databaseURL: 'https://heroic-icon-151001.firebaseio.com',
+    projectId: 'heroic-icon-151001',
+    storageBucket: 'heroic-icon-151001.appspot.com',
+    messagingSenderId: '289878522015'
+  },
+  googleMapsKey: 'AIzaSyAqzL-TfnA8QNy4nEtEF4v_ZtKvENPOJhE'
 };
 
 /*

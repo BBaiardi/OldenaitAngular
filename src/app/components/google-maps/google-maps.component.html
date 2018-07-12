@@ -1,0 +1,11 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+
+  <agm-marker [latitude]="lat" [longitude]="lng">
+      <agm-info-window>Tu posición</agm-info-window>
+  </agm-marker>
+
+  <agm-marker *ngFor="let club of clubs" [latitude]="club.latitude" [longitude]="club.longitude">
+      <agm-info-window>{{ club.name }}</agm-info-window>
+  </agm-marker>
+
+</agm-map>

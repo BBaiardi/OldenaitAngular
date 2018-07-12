@@ -1,0 +1,30 @@
+<mdb-navbar SideClass="navbar fixed-top navbar-expand-lg navbar-dark brown scrolling-navbar ie-nav" [containerInside]="true">
+  <logo>
+      <a class="logo navbar-brand" href="#"><strong>Oldenait</strong></a>
+  </logo>
+  <links>
+      <ul class="navbar-nav mr-auto">
+          <li class="nav-item active waves-light" mdbWavesEffect>
+              <a class="nav-link">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item waves-light" mdbWavesEffect>
+              <a class="nav-link" [routerLink]="['/event']" routerLinkActive="active">Eventos</a>
+          </li>
+          <li class="nav-item waves-light" mdbWavesEffect>
+              <a class="nav-link">Clubes</a>
+          </li>
+          <li class="nav-item waves-light" mdbWavesEffect>
+              <a class="nav-link" [routerLink]="['/map']" routerLinkActibe="active">Mapa</a>
+          </li>
+      </ul>
+      <ul class="navbar-nav nav-flex-icons">
+          <li class="nav-item waves-light" mdbWavesEffect>
+              <a class="nav-link"><i class="far fa-user"></i></a>
+          </li>
+      </ul>
+  </links>
+</mdb-navbar>
+<main>
+    <router-outlet></router-outlet>
+    
+</main>
