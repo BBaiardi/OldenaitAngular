@@ -1,0 +1,18 @@
+<div class="container">
+  <form [formGroup]="userForm" (ngSubmit)="login()">
+    <input type="text" formControlName="email" placeholder="Correo Electrónico">
+
+    <input type="password" formControlName="password" placeholder="Contraseña">
+
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+
+<button type="button" class="btn btn-fb" (click)="signInWithFacebook()">
+    <i class="fab fa-facebook mr-2"></i> Facebook
+  </button>
+
+<button type="button" class="btn btn-gplus" (click)="signInWithGoogle()">
+    <i class="fab fa-google mr-2"></i> Google
+    </button>
+
+</div>

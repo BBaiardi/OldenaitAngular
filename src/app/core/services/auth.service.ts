@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import { AngularFirestore, AngularFirestoreDocument } from 'angularfire2/firestore';
 
 import { Observable, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
@@ -15,9 +15,7 @@ interface User {
   displayName?: string;
 }
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class AuthService {
 
   user: Observable<User | null>;
@@ -38,7 +36,6 @@ export class AuthService {
   }
 
   // OAuth Methods //
-
   googleLogin() {
     const provider = new auth.GoogleAuthProvider();
     return this.oAuthLogin(provider);
@@ -60,7 +57,6 @@ export class AuthService {
   }
 
   // Email/Password Auth //
-
   emailSignUp(email: string, password: string) {
     return this.afAuth.auth
     .createUserWithEmailAndPassword(email, password)
@@ -83,6 +79,7 @@ export class AuthService {
     });
   }
 
+  // Registra data del usuario despues un logueo exitoso
   private updateUserData(user: User) {
     const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
 

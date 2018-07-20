@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ClubService } from '../../core/club.service';
-import { Club } from '../../models/club';
+import { ClubService } from '../../core/services/club.service';
+import { Club } from '../../core/models/club';
 
 @Component({
   selector: 'app-google-maps',
