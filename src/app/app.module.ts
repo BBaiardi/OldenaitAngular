@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
+
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 
 // AngularFire2
 import { AngularFireModule } from 'angularfire2';
@@ -20,6 +22,11 @@ import { AgmCoreModule } from '@agm/core';
 import { GoogleMapsComponent } from './components/google-maps/google-maps.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+// Clarity
+import { ClarityModule, ClrFormsModule } from '@clr/angular';
+import { UserFormComponent } from './components/user-form/user-form.component';
 
 @NgModule({
   declarations: [
@@ -28,20 +35,24 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
     EventsComponent,
     GoogleMapsComponent,
     LoginComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    HomePageComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     CoreModule,
-    MDBBootstrapModule.forRoot(),
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsKey
     }),
-    ReactiveFormsModule, FormsModule
+    ReactiveFormsModule, FormsModule,
+    NgbModule.forRoot(),
+    BrowserAnimationsModule,
+    ClarityModule, ClrFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

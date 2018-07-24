@@ -43,6 +43,7 @@ export class AuthService {
 
   facebookLogin() {
     const provider = new auth.FacebookAuthProvider();
+    provider.addScope('email');
     return this.oAuthLogin(provider);
   }
   private oAuthLogin(provider: any) {

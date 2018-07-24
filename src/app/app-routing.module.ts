@@ -5,8 +5,10 @@ import { GoogleMapsComponent } from './components/google-maps/google-maps.compon
 import { LoginComponent } from './components/login/login.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthGuard } from './core/guards/auth.guard';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 const routes: Routes = [
+  { path: 'home', component: HomePageComponent },
   { path: 'eventos', component: EventsComponent },
   { path: 'mapa', component: GoogleMapsComponent },
   { path: 'login', component: LoginComponent },

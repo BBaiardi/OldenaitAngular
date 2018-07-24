@@ -1,18 +1,18 @@
-<div class="container">
-  <form [formGroup]="userForm" (ngSubmit)="login()">
-    <input type="text" formControlName="email" placeholder="Correo Electrónico">
+<form class="clr-form" [formGroup]="userForm" (ngSubmit)="login()">
+  
+  <input type="text" formControlName="email" placeholder="Correo Electrónico">
+  <span *ngIf="email.invalid && email.touched">Email incorrecto</span>
 
     <input type="password" formControlName="password" placeholder="Contraseña">
+    <span *ngIf="password.invalid && password.touched">La contraseña no cumple los requisitos</span>
 
-    <button type="submit" class="btn btn-primary">Login</button>
+    <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary">Login</button>
   </form>
 
-<button type="button" class="btn btn-fb" (click)="signInWithFacebook()">
+<button type="button" class="btn" (click)="signInWithFacebook()">
     <i class="fab fa-facebook mr-2"></i> Facebook
   </button>
 
-<button type="button" class="btn btn-gplus" (click)="signInWithGoogle()">
+<button type="button" class="btn" (click)="signInWithGoogle()">
     <i class="fab fa-google mr-2"></i> Google
     </button>
-
-</div>
