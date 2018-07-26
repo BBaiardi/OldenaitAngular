@@ -3,6 +3,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from '@angular/core';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 // AngularFire2
 import { AngularFireModule } from 'angularfire2';
@@ -52,7 +53,8 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     ReactiveFormsModule, FormsModule,
     NgbModule.forRoot(),
     BrowserAnimationsModule,
-    ClarityModule, ClrFormsModule
+    ClarityModule, ClrFormsModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,19 @@
-<p>
-  user-form works!
-</p>
+<form class="clr-form" [formGroup]="submitForm" (ngSubmit)="signUp()">
+    <div class="clr-form-control">        
+        <div class="clr-input-container">
+            <label for="email" class="clr-control-label">Correo Electrónico</label>
+            <input type="email" formControlName="email" id="email" class="clr-input">
+        </div>
+        <div class="clr-input-container">
+            <label for="password" class="clr-control-label">Contraseña</label>
+            <input type="password" formControlName="password" id="password" class="clr-input">
+        </div>
+        <button [disabled]="submitForm.invalid" type="submit" class="btn btn-primary">Registrarse</button>
+    </div>
+</form>
+<form>
+    <mat-form-field>
+        <input type="email" matInput required>
+        <mat-error></mat-error>
+    </mat-form-field>
+</form>
