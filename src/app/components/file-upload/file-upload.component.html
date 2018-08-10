@@ -1,0 +1,4 @@
+<input type="file" (change)="uploadFile($event)" accept=".png, .jpg">
+<div>{{ percentage | async }}</div>
+<progress max="100" [value]="(percentage | async)"></progress>
+<a [href]="downloadUrl | async">{{ downloadUrl | async }}</a>

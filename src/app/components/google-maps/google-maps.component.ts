@@ -9,6 +9,7 @@ import { Club } from '../../core/models/club';
 })
 export class GoogleMapsComponent implements OnInit {
   clubs: Club[];
+
   lat: number;
   lng: number;
 

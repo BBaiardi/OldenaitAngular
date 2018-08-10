@@ -9,6 +9,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireStorageModule } from 'angularfire2/storage';
 
 import { CoreModule } from '../app/core/core.module';
 
@@ -19,7 +20,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { environment } from '../environments/environment';
 import { EventsComponent } from './components/events/events.component';
+
 import { AgmCoreModule } from '@agm/core';
+import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
+
 import { GoogleMapsComponent } from './components/google-maps/google-maps.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
@@ -28,6 +32,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Clarity
 import { ClarityModule, ClrFormsModule } from '@clr/angular';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
+import { EventDetailComponent } from './components/event-detail/event-detail.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +44,9 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     LoginComponent,
     UserProfileComponent,
     HomePageComponent,
-    UserFormComponent
+    UserFormComponent,
+    FileUploadComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -47,6 +55,7 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    AngularFireStorageModule,
     AgmCoreModule.forRoot({
       apiKey: environment.googleMapsKey
     }),
@@ -54,7 +63,8 @@ import { UserFormComponent } from './components/user-form/user-form.component';
     NgbModule.forRoot(),
     BrowserAnimationsModule,
     ClarityModule, ClrFormsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    AgmSnazzyInfoWindowModule
   ],
   providers: [],
   bootstrap: [AppComponent]

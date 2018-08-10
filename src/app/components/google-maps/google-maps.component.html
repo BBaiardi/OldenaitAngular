@@ -1,11 +1,26 @@
-<agm-map [latitude]="lat" [longitude]="lng">
+<agm-map 
+[latitude]="lat" 
+[longitude]="lng"
+[zoom]="12">
 
   <agm-marker [latitude]="lat" [longitude]="lng">
       <agm-info-window>Tu posición</agm-info-window>
   </agm-marker>
 
-  <agm-marker *ngFor="let club of clubs" [latitude]="club.latitude" [longitude]="club.longitude">
-      <agm-info-window>{{ club.name }}</agm-info-window>
+  <agm-marker 
+        *ngFor="let c of clubs"
+        [latitude]="c.latitude" 
+        [longitude]="c.longitude">
+      
+        <agm-snazzy-info-window [closeWhenOthersOpen]="true">
+          <ng-template>
+              <img [src]="c.imageUrl">
+              <h1>{{ c.name }}</h1>
+              {{ c.address }}
+              <p>{{ c.website }}</p>
+          </ng-template>
+      </agm-snazzy-info-window>
+      
   </agm-marker>
 
 </agm-map>

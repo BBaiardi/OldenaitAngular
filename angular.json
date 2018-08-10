@@ -30,6 +30,7 @@
               "node_modules/@clr/icons/clr-icons.min.css",
               "node_modules/@clr/ui/clr-ui.min.css",
               "node_modules/font-awesome/scss/font-awesome.scss",
+              "node_modules/snazzy-info-window/dist/snazzy-info-window.css",
               "src/styles.scss"
             ],
             "scripts": [

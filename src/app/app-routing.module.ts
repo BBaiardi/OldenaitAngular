@@ -7,10 +7,11 @@ import { UserProfileComponent } from './components/user-profile/user-profile.com
 import { AuthGuard } from './core/guards/auth.guard';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
+import { EventDetailComponent } from './components/event-detail/event-detail.component';
 
 const routes: Routes = [
   { path: 'home', component: HomePageComponent },
-  { path: 'eventos', component: EventsComponent },
+  { path: 'eventos', component: EventsComponent, children: [{ path: ':title', component: EventDetailComponent}] },
   { path: 'mapa', component: GoogleMapsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: UserFormComponent },

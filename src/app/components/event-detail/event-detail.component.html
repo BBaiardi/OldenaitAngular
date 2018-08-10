@@ -1,0 +1,10 @@
+<div class="clr-row clr-justify-content-center" *ngIf="event$ | async as event">
+    <div class="clr-col-4">
+        <div class="card">
+            <div class="card-block">
+              <h1>{{ event.title }}</h1>
+              <p>{{ event.description }}</p>
+            </div>
+        </div>
+    </div>
+</div>
