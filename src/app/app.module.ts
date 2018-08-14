@@ -19,7 +19,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { environment } from '../environments/environment';
-import { EventsComponent } from './components/events/events.component';
 
 import { AgmCoreModule } from '@agm/core';
 import { AgmSnazzyInfoWindowModule } from '@agm/snazzy-info-window';
@@ -31,23 +30,23 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Clarity
 import { ClarityModule, ClrFormsModule } from '@clr/angular';
+
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
-import { EventDetailComponent } from './components/event-detail/event-detail.component';
+
+import { EventsModule } from './components/events/events.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    EventsComponent,
     GoogleMapsComponent,
     LoginComponent,
     UserProfileComponent,
     HomePageComponent,
     UserFormComponent,
     FileUploadComponent,
-    EventDetailComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -64,7 +63,8 @@ import { EventDetailComponent } from './components/event-detail/event-detail.com
     BrowserAnimationsModule,
     ClarityModule, ClrFormsModule,
     MatFormFieldModule,
-    AgmSnazzyInfoWindowModule
+    AgmSnazzyInfoWindowModule,
+    EventsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

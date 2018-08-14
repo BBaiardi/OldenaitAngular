@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 // For MDB Angular Free
 import { CarouselModule, WavesModule } from 'angular-bootstrap-md';
-import { EventService } from '../../core/services/event.service';
 import { Event } from '../../core/models/event';
 
 @Component({
@@ -12,12 +11,9 @@ import { Event } from '../../core/models/event';
 export class HomePageComponent implements OnInit {
   events: Event[];
 
-  constructor(private eventService: EventService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.eventService.getEvents().subscribe( events => {
-      this.events = events;
-    });
   }
 
 }

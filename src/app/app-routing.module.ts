@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { EventsComponent } from './components/events/events.component';
 import { GoogleMapsComponent } from './components/google-maps/google-maps.component';
 import { LoginComponent } from './components/login/login.component';
 import { UserProfileComponent } from './components/user-profile/user-profile.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { HomePageComponent } from './components/home-page/home-page.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
-import { EventDetailComponent } from './components/event-detail/event-detail.component';
+import { EventListComponent } from './components/events/event-list/event-list.component';
+import { EventDetailComponent } from './components/events/event-detail/event-detail.component';
 
 const routes: Routes = [
-  { path: 'home', component: HomePageComponent },
-  { path: 'eventos', component: EventsComponent, children: [{ path: ':title', component: EventDetailComponent}] },
+  { path: '', component: HomePageComponent },
+  { path: 'eventos', component: EventListComponent, children: [ { path: ':title', component: EventDetailComponent }] },
   { path: 'mapa', component: GoogleMapsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: UserFormComponent },
