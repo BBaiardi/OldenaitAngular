@@ -1,9 +1,9 @@
-<ng-container *ngIf="auth.user | async; then authenticated"></ng-container>
-<ng-template #authenticated>
+
+
   <div *ngIf="auth.user | async as user">
-    <h3>Querido, {{ user.displayName }}</h3>
+    <h3>Usuario: {{ user.displayName }}</h3>
     <img [src]="user.photoUrl">
     <p>UID: {{ user.uid }}</p>
-    <app-file-upload></app-file-upload>
+    <button (click)="changePic()">Actualizar imagen</button>
   </div>
   

@@ -13,10 +13,16 @@ export class EventListComponent implements OnInit {
 
   events$: Observable<Event[]>;
 
-  constructor(private eventService: EventService, private router: Router, private route: ActivatedRoute) { }
+  selectedEvent: Event;
+
+  constructor(private eventService: EventService) { }
 
   ngOnInit() {
     this.events$ = this.eventService.getData();
+  }
+
+  onSelect(event: Event): void {
+    this.selectedEvent = event;
   }
 
 }

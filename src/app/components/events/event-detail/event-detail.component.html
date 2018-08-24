@@ -1,4 +1,17 @@
-<div *ngIf="event$ | async as event">
-  <h1>{{ event.title }}</h1>
-  <p>{{ event.description }}</p>
+<div class="clr-row clr-justify-content-center" *ngIf="event">
+  <div class="clr-col-lg-4">
+    <div class="card">
+      <div class="card-header">
+        {{ event.title }}
+      </div>
+      <div class="card-img">
+        <img [src]="event.imageUrl">
+      </div>
+      <div class="card-block">        
+        <p class="card-text">
+          {{ event.description }}
+        </p>
+      </div>
+    </div>
+  </div>
 </div>

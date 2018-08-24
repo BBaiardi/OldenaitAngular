@@ -21,8 +21,8 @@ export class AuthService {
   user: Observable<User | null>;
 
   constructor(
-    private afAuth: AngularFireAuth,
-    private afs: AngularFirestore,
+    public afAuth: AngularFireAuth,
+    public afs: AngularFirestore,
     private router: Router
   ) { this.user = this.afAuth.authState.pipe(
       switchMap(user => {
@@ -88,7 +88,7 @@ export class AuthService {
       uid: user.uid,
       email: user.email || null,
       displayName: user.displayName || 'Usuario sin nombre',
-      photoUrl: user.photoUrl || 'https://goo.gl/Fz9nrQ'
+      photoUrl: user.photoUrl
     };
     return userRef.set(data);
   }

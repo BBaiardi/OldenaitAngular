@@ -13,4 +13,10 @@ export class UserProfileComponent implements OnInit {
   ngOnInit() {
   }
 
+  changePic() {
+    this.auth.afAuth.user.subscribe(u => {
+      u.updateProfile({ displayName: 'Lars', photoURL: 'https://goo.gl/7TEsxb' });
+    });
+  }
+
 }

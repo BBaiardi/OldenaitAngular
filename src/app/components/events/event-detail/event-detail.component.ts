@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { AngularFirestore } from 'angularfire2/firestore';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
+import { Event } from '../../../core/models/event';
 
 @Component({
   selector: 'app-event-detail',
@@ -10,18 +9,12 @@ import { Observable } from 'rxjs';
   styleUrls: ['./event-detail.component.scss']
 })
 export class EventDetailComponent implements OnInit {
-  
-  event$;
+
+  @Input() event: Event;
 
   constructor(private afs: AngularFirestore, private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.event$ = this.route.paramMap.pipe(
-      switchMap(params => {
-        const title = params.get('title');
-        return this.afs.doc('events/' + title).valueChanges();
-      })
-    );
   }
 
 }
