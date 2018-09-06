@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../core/services/auth.service';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-user-profile',
@@ -8,15 +11,15 @@ import { AuthService } from '../../core/services/auth.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  constructor(public auth: AuthService) { }
+  name = new FormControl('');
+
+  constructor(public auth: AuthService) {
+  }
 
   ngOnInit() {
   }
 
-  changePic() {
-    this.auth.afAuth.user.subscribe(u => {
-      u.updateProfile({ displayName: 'Lars', photoURL: 'https://goo.gl/7TEsxb' });
-    });
-  }
+
+
 
 }

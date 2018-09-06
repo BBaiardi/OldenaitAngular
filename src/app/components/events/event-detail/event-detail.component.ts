@@ -1,7 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AngularFirestore } from 'angularfire2/firestore';
 import { ActivatedRoute } from '@angular/router';
 import { Event } from '../../../core/models/event';
+import { EventService } from '../event.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-event-detail',
@@ -10,11 +11,15 @@ import { Event } from '../../../core/models/event';
 })
 export class EventDetailComponent implements OnInit {
 
-  @Input() event: Event;
+  event$: Observable<Event[]>;
 
-  constructor(private afs: AngularFirestore, private route: ActivatedRoute) { }
+  constructor(private eventService: EventService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.route.params.subscribe( params => {
+      this.event$ = this.eventService.getEvent(params['id']).valueChanges();
+    });
   }
 
 }

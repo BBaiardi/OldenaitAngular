@@ -11,7 +11,8 @@ import { EventDetailComponent } from './components/events/event-detail/event-det
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
-  { path: 'eventos', component: EventListComponent, children: [ { path: ':title', component: EventDetailComponent }] },
+  { path: 'eventos', component: EventListComponent },
+  { path: 'evento/:id', component: EventDetailComponent },
   { path: 'mapa', component: GoogleMapsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: UserFormComponent },

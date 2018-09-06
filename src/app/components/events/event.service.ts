@@ -28,6 +28,7 @@ export class EventService {
      );
    }
 
+   // Mediante ID devuelve la referencia del doc en la base de datos
    getEvent(id: string) {
      return this.afs.doc<any>(`events/${id}`);
    }

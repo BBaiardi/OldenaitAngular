@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { EventService } from '../event.service';
 import { Observable } from 'rxjs';
 import { Event } from '../../../core/models/event';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 
 @Component({
   selector: 'app-event-list',
@@ -13,16 +12,11 @@ export class EventListComponent implements OnInit {
 
   events$: Observable<Event[]>;
 
-  selectedEvent: Event;
-
   constructor(private eventService: EventService) { }
 
   ngOnInit() {
     this.events$ = this.eventService.getData();
   }
 
-  onSelect(event: Event): void {
-    this.selectedEvent = event;
-  }
 
 }

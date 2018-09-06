@@ -1,6 +1,6 @@
-<app-event-detail [event]="selectedEvent"></app-event-detail>
+
 <div class="clr-row">
-    <div class="clr-col-lg-4" *ngFor="let event of events$ | async" [class.selected]="event === selectedEvent" (click)="onSelect(event)">
+    <div class="clr-col-lg-4" *ngFor="let event of events$ | async" [routerLink]="['/evento', event.id]">
         <div class="card">
             <div class="card-img">
                 <img [src]="event.imageUrl">

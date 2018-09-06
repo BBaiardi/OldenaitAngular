@@ -1,9 +1,12 @@
-
-
   <div *ngIf="auth.user | async as user">
     <h3>Usuario: {{ user.displayName }}</h3>
     <img [src]="user.photoUrl">
     <p>UID: {{ user.uid }}</p>
-    <button (click)="changePic()">Actualizar imagen</button>
   </div>
-  
+
+  <label>
+    Nombre: <input type="text" [formControl]="name"> 
+  </label>
+  <p>
+    {{ name.value }}
+  </p>
