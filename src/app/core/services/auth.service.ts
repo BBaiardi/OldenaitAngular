@@ -46,6 +46,7 @@ export class AuthService {
     provider.addScope('email');
     return this.oAuthLogin(provider);
   }
+
   private oAuthLogin(provider: any) {
     return this.afAuth.auth
     .signInWithPopup(provider)
@@ -58,15 +59,21 @@ export class AuthService {
   }
 
   // Email/Password Auth //
-  emailSignUp(email: string, password: string) {
-    return this.afAuth.auth
+  public async emailSignUp(displayName: string, email: string, password: string) {
+    await this.afAuth.auth
     .createUserWithEmailAndPassword(email, password)
     .then(credential => {
-      return this.updateUserData(credential.user);
+      this.updateUserData(credential.user);
+    });
+    /* return this.afAuth.auth
+    .createUserWithEmailAndPassword(email, password)
+    .then(credential => {
+      this.updateUserData(credential.user);
+      this.updateProfile(displayName, credential.user.photoURL);
     })
     .catch(err => {
       console.log(err);
-    });
+    });*/
   }
 
   emailLogin(email: string, password: string) {
@@ -86,11 +93,20 @@ export class AuthService {
 
     const data: User = {
       uid: user.uid,
-      email: user.email || null,
-      displayName: user.displayName || 'Usuario sin nombre',
-      photoUrl: user.photoUrl
+      email: user.email,
+      displayName: user.displayName,
+      photoUrl: user.photoUrl || null
     };
-    return userRef.set(data);
+    return userRef.set(data, {merge: true});
+  }
+
+  public deleteUserData(user: User) {
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(`users/${user.uid}`);
+    return userRef.delete();
+  }
+
+  public async updateProfile(name: string, photoUrl: string): Promise<any> {
+    return await this.afAuth.auth.currentUser.updateProfile({ displayName: name, photoURL: photoUrl});
   }
 
   signOut() {

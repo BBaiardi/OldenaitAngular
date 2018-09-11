@@ -8,6 +8,7 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { UserFormComponent } from './components/user-form/user-form.component';
 import { EventListComponent } from './components/events/event-list/event-list.component';
 import { EventDetailComponent } from './components/events/event-detail/event-detail.component';
+import { AuthComponent } from './components/auth/auth.component';
 
 const routes: Routes = [
   { path: '', component: HomePageComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'mapa', component: GoogleMapsComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro', component: UserFormComponent },
+  { path: 'auth', component: AuthComponent },
   {
     path: 'perfil',
     component: UserProfileComponent,

@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  userForm: FormGroup;
+  userSignInForm: FormGroup;
 
   constructor(public auth: AuthService, private router: Router, private fb: FormBuilder) {
     this.createForm();
@@ -19,27 +19,31 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+  // Social Login
+
   async signInWithFacebook() {
     await this.auth.facebookLogin();
-    return this.afterSignIn();
+    return await this.afterSignIn();
   }
 
   async signInWithGoogle() {
     await this.auth.googleLogin();
-    return this.afterSignIn();
+    return await this.afterSignIn();
   }
 
-  login() {
-    this.auth.emailLogin(this.userForm.value['email'], this.userForm.value['password']);
-    return this.afterSignIn();
+  // Email-password Login
+
+  async login() {
+    await this.auth.emailLogin(this.userSignInForm.value['email'], this.userSignInForm.value['password']);
+    return await this.afterSignIn();
   }
 
   private afterSignIn() {
-    return this.router.navigate(['/perfil']);
+    return this.router.navigate(['/']);
   }
 
   createForm() {
-    this.userForm = this.fb.group({
+    this.userSignInForm = this.fb.group({
       email: ['', [
         Validators.required,
         Validators.email
@@ -54,11 +58,11 @@ export class LoginComponent implements OnInit {
   }
 
   get email() {
-    return this.userForm.get('email');
+    return this.userSignInForm.get('email');
   }
 
   get password() {
-    return this.userForm.get('password');
+    return this.userSignInForm.get('password');
   }
 
 }

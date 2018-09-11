@@ -5,7 +5,6 @@ import { AuthService, User } from '../../core/services/auth.service';
 import { Observable } from 'rxjs';
 import { tap, finalize, map } from 'rxjs/operators';
 import { AngularFirestore } from 'angularfire2/firestore';
-import { Auth } from 'firebase/auth';
 
 
 @Component({
@@ -28,8 +27,6 @@ export class FileUploadComponent implements OnInit {
   }
 
   uploadFile(event) {
-    console.log(this.auth.user.subscribe(user =>
-    user.uid));
     const file = event.target.files[0];
     const filePath = `users/${this.auth.auth.currentUser.uid}/profile_pic/${file.name}`;
     const fileRef = this.storage.ref(filePath);

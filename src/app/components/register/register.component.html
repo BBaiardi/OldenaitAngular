@@ -1,4 +1,4 @@
-<form class="clr-form" [formGroup]="submitForm" (ngSubmit)="signUp()">
+<form class="clr-form" [formGroup]="registerForm" (ngSubmit)="signUp()">
     <div class="clr-form-control">  
         <div class="clr-input-container">
             <label for="displayName" class="clr-control-label">Nombre de usuario</label>
@@ -12,6 +12,6 @@
             <label for="password" class="clr-control-label">Contraseña</label>
             <input type="password" formControlName="password" id="password" class="clr-input">
         </div>
-        <button [disabled]="submitForm.invalid" type="submit" class="btn btn-primary">Registrarse</button>
+        <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary">Registrarse</button>
     </div>
 </form>

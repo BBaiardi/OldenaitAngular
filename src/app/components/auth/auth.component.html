@@ -1,0 +1,18 @@
+<div class="clr-row clr-justify-content-center">
+  <div class="clr-col-4">
+      <clr-tabs>
+          <clr-tab>
+            <button clrTabLink>Iniciar Sesión</button>
+            <clr-tab-content *clrIfActive>
+              <app-login></app-login>
+            </clr-tab-content>
+          </clr-tab>
+          <clr-tab>
+            <button clrTabLink>Registrarse</button>
+            <clr-tab-content *clrIfActive>
+              <app-register></app-register>
+            </clr-tab-content>
+          </clr-tab>
+        </clr-tabs>    
+  </div>
+</div>

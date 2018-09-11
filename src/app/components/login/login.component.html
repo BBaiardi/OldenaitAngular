@@ -1,12 +1,12 @@
-<form class="clr-form" [formGroup]="userForm" (ngSubmit)="login()">
+<form class="clr-form" [formGroup]="userSignInForm" (ngSubmit)="login()">
   
   <input type="text" formControlName="email" placeholder="Correo Electrónico">
-  <span *ngIf="email.invalid && email.touched">Email incorrecto</span>
+  <span *ngIf="email.invalid">Email incorrecto</span>
 
     <input type="password" formControlName="password" placeholder="Contraseña">
-    <span *ngIf="password.invalid && password.touched">La contraseña no cumple los requisitos</span>
+    <span *ngIf="password.invalid">La contraseña no cumple los requisitos</span>
 
-    <button [disabled]="userForm.invalid" type="submit" class="btn btn-primary">Login</button>
+    <button [disabled]="userSignInForm.invalid" type="submit" class="btn btn-primary">Login</button>
   </form>
 
 <button type="button" class="btn" (click)="signInWithFacebook()">

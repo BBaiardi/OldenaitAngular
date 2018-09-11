@@ -16,6 +16,11 @@ export class UserFormComponent implements OnInit {
 
   ngOnInit() {
     this.submitForm = this.fb.group({
+      displayName: ['', [
+        Validators.required,
+        Validators.minLength(2),
+        Validators.maxLength(25)
+      ]],
       email: ['', [
         Validators.required,
         Validators.email
@@ -29,8 +34,15 @@ export class UserFormComponent implements OnInit {
   }
 
   signUp() {
-    this.auth.emailSignUp(this.submitForm.value['email'], this.submitForm.value['password']);
-    return this.router.navigate(['/perfil']);
+    this.auth.emailSignUp(this.submitForm.value['displayName'], this.submitForm.value['email'], this.submitForm.value['password'])
+    .catch(error => {
+      return console.log(error);
+    });
+    return this.router.navigate(['/login']);
+  }
+
+  get displayName() {
+    return this.submitForm.get('displayName');
   }
 
   get email() {

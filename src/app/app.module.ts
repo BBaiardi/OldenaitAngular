@@ -35,6 +35,8 @@ import { UserFormComponent } from './components/user-form/user-form.component';
 import { FileUploadComponent } from './components/file-upload/file-upload.component';
 
 import { EventsModule } from './components/events/events.module';
+import { AuthComponent } from './components/auth/auth.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { EventsModule } from './components/events/events.module';
     HomePageComponent,
     UserFormComponent,
     FileUploadComponent,
+    AuthComponent,
+    RegisterComponent,
     ],
   imports: [
     BrowserModule,
